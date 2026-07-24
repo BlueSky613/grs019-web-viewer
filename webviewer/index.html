@@ -222,7 +222,10 @@ gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
 let yaw=-0.9, pitch=0.5, dist=1, target=[0,0,0], home=null;
 function eye(){return [target[0]+dist*Math.cos(pitch)*Math.cos(yaw), target[1]+dist*Math.cos(pitch)*Math.sin(yaw), target[2]+dist*Math.sin(pitch)];}
 function dpr(){return Math.min(devicePixelRatio||1,2);}
-function resize(){const d=dpr();canvas.width=canvas.clientWidth*d;canvas.height=canvas.clientHeight*d;}
+// Resize the drawing buffer to match the displayed size. Runs every frame (guarded) so
+// layout changes such as the right-hand info panel opening/closing are handled too.
+function resize(){const d=dpr();const w=Math.round(canvas.clientWidth*d),h=Math.round(canvas.clientHeight*d);
+  if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}}
 window.addEventListener('resize',resize);
 
 let dragging=0,lx=0,ly=0,downX=0,downY=0,moveAcc=0;
@@ -399,11 +402,14 @@ function gizmoMVP(){
   const gView=lookAt([dir[0]*3.4,dir[1]*3.4,dir[2]*3.4],[0,0,0],[0,0,1]);
   return mul(perspective(32*Math.PI/180,1,0.1,100),gView);
 }
-// viewport (device px, gl bottom-left origin) covering an overlay box element
+// viewport (device px, gl bottom-left origin) covering an overlay box element.
+// Uses the actual backing-store/CSS ratio so it stays correct when the canvas is
+// resized by layout changes (e.g. the info panel opening).
 function boxViewport(el){
-  const r=el.getBoundingClientRect(), cr=canvas.getBoundingClientRect(), d=dpr();
-  return { x:Math.round((r.left-cr.left)*d), y:Math.round((cr.height-(r.top-cr.top)-r.height)*d),
-           w:Math.round(r.width*d), h:Math.round(r.height*d) };
+  const r=el.getBoundingClientRect(), cr=canvas.getBoundingClientRect();
+  const sx=canvas.width/cr.width, sy=canvas.height/cr.height;
+  return { x:Math.round((r.left-cr.left)*sx), y:Math.round((cr.height-(r.top-cr.top)-r.height)*sy),
+           w:Math.round(r.width*sx), h:Math.round(r.height*sy) };
 }
 // Compass and XYZ axes are drawn as SEPARATE gizmos in their own boxes (same rotation).
 function drawGizmos(){
@@ -583,6 +589,7 @@ function undo(){ if(!history.length) return; restore(history.pop()); refreshUndo
 
 // ---------- render loop ----------
 function frame(){
+  resize();                         // keep the drawing buffer in sync with the display size
   for(const a of ['x','y','z']){ const pl=planes[a]; if(pl&&pl.dirty) refreshTex(pl,a); }
   pumpSolidBuild();
   draw();
