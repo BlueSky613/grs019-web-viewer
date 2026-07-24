@@ -8,21 +8,21 @@ advantage over a surface-shell representation.
 
 Pure WebGL. No dependencies, no build step, no internet required.
 
+This app is fully self-contained: its data lives in `data/`, so the folder can be
+deployed on its own (e.g. Vercel) with nothing else.
+
 ## Run
 ```
 cd webviewer
 node serve.js
 ```
-Open http://localhost:8090/webviewer/ in a browser.
+Open http://localhost:8090/ in a browser.
 
-The server serves the project root so the viewer can read the sibling `viewerData/`
-and `previewer/` folders.
-
-## Data used
-- `../viewerData/volume/volume_u8.bin.gz` — dense uint8 stratigraphic-ordinal volume
-  (1410 x 996 x 206). 3.3 MB gzipped; decompressed in the browser via the native
-  `DecompressionStream` API. This single file drives everything below.
-- `../viewerData/volume/volume.json` — grid header + ordinal -> layer color map.
+## Data used (bundled in `data/`)
+- `data/volume_u8.bin.gz` — dense uint8 stratigraphic-ordinal volume (1410 x 996 x 206).
+  3.3 MB gzipped; decompressed in the browser via the native `DecompressionStream` API.
+- `data/volume.json` — grid header + ordinal -> layer color map.
+- `data/manifest.json` — per-layer records (count, bbox, solidity) for the info panel.
 
 Both the cross-section planes and the **3D solids** are generated from this in-memory
 volume. Nothing else is fetched, so there is no per-layer network load: enabling a

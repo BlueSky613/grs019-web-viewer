@@ -143,10 +143,10 @@
 // ============================================================================
 // GRS019 Web Viewer — pure WebGL, no dependencies, works fully offline.
 //
-// Data (served from the project root, read from the sibling folders):
-//   ../viewerData/volume/volume_u8.bin.gz   dense uint8 stratigraphic-ordinal volume
-//   ../viewerData/volume/volume.json        grid header + ordinal -> layer color map
-//   ../viewerData/manifest.json             per-layer records (count, bbox, solidity)
+// Data (bundled inside this app under data/):
+//   data/volume_u8.bin.gz   dense uint8 stratigraphic-ordinal volume
+//   data/volume.json        grid header + ordinal -> layer color map
+//   data/manifest.json      per-layer records (count, bbox, solidity)
 //
 // Orientation: CRS is NAD83 UTM (easting/northing), vertical EGM96.
 //   +X = grid East, +Y = grid North (northing increases), +Z = Up (elevation).
@@ -242,10 +242,10 @@ const history=[];                    // undo stack of state snapshots
 // ---------- load ----------
 async function loadData(){
   const [meta,manifest]=await Promise.all([
-    fetch('../viewerData/volume/volume.json').then(r=>r.json()),
-    fetch('../viewerData/manifest.json').then(r=>r.json()).catch(()=>null)
+    fetch('data/volume.json').then(r=>r.json()),
+    fetch('data/manifest.json').then(r=>r.json()).catch(()=>null)
   ]);
-  const resp=await fetch('../viewerData/volume/volume_u8.bin.gz');
+  const resp=await fetch('data/volume_u8.bin.gz');
   const ab=await resp.arrayBuffer(); let u8=new Uint8Array(ab);
   if(u8[0]===0x1f && u8[1]===0x8b){                 // still gzip-wrapped -> inflate here
     if(!('DecompressionStream' in window)) throw new Error('This browser lacks DecompressionStream (gzip). Use a recent Chrome, Edge, Firefox or Safari.');

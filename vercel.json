@@ -7,7 +7,7 @@
   ],
   "headers": [
     {
-      "source": "/viewerData/volume/volume_u8.bin.gz",
+      "source": "/webviewer/data/volume_u8.bin.gz",
       "headers": [
         { "key": "Content-Type", "value": "application/octet-stream" }
       ]
