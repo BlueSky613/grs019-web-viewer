@@ -1,0 +1,2091 @@
+{
+  "dataset": "GRS019 / GSC OF8618 - 3D Paleozoic Bedrock of Southern Ontario",
+  "source": "Ontario_BR_Ver1_trim.csv (400x400x10 m point grid)",
+  "format": "sparse voxel-index point cloud (.bin + .json)",
+  "record": {
+    "stride": 5,
+    "endian": "little",
+    "fields": [
+      {
+        "name": "ix",
+        "type": "uint16",
+        "bytes": 2
+      },
+      {
+        "name": "iy",
+        "type": "uint16",
+        "bytes": 2
+      },
+      {
+        "name": "iz",
+        "type": "uint8",
+        "bytes": 1
+      }
+    ]
+  },
+  "grid": {
+    "origin": [
+      322400,
+      4615200,
+      -1520
+    ],
+    "spacing": [
+      400,
+      400,
+      10
+    ],
+    "dims": [
+      1410,
+      996,
+      206
+    ],
+    "crs": "NAD83 UTM (single extended zone); vertical EGM96",
+    "worldFromIndex": "x=origin[0]+ix*spacing[0]; y=origin[1]+iy*spacing[1]; z=origin[2]+iz*spacing[2]"
+  },
+  "totalPoints": 117909004,
+  "anomalies": 0,
+  "layerCount": 56,
+  "layers": [
+    {
+      "id": "001",
+      "code": "001",
+      "label": "GEO_FORMV2: 001_Overburden",
+      "name": "Overburden",
+      "group": "-",
+      "age": "Quaternary",
+      "color": "#cbb24d",
+      "count": 2195283,
+      "file": "points/001_Overburden.bin",
+      "bytes": 10976415,
+      "bbox": {
+        "ix": [
+          0,
+          1408
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          139,
+          205
+        ]
+      },
+      "solidity": {
+        "columns": 588976,
+        "solidColumns": 588976,
+        "filledVoxels": 2195283,
+        "columnIntervalVoxels": 2195283,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "300",
+      "code": "300",
+      "label": "GEO_FORMV2: 300_Port Lambton Group",
+      "name": "Port Lambton Group",
+      "group": "Port Lambton",
+      "age": "Devonian",
+      "color": "#965d2c",
+      "count": 1396,
+      "file": "points/300_Port_Lambton_Group.bin",
+      "bytes": 6980,
+      "bbox": {
+        "ix": [
+          138,
+          204
+        ],
+        "iy": [
+          253,
+          361
+        ],
+        "iz": [
+          158,
+          168
+        ]
+      },
+      "solidity": {
+        "columns": 546,
+        "solidColumns": 546,
+        "filledVoxels": 1396,
+        "columnIntervalVoxels": 1396,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "301",
+      "code": "301",
+      "label": "GEO_FORMV2: 301_Kettle Point",
+      "name": "Kettle Point",
+      "group": "Kettle Point",
+      "age": "Devonian",
+      "color": "#a2652f",
+      "count": 181391,
+      "file": "points/301_Kettle_Point.bin",
+      "bytes": 906955,
+      "bbox": {
+        "ix": [
+          103,
+          655
+        ],
+        "iy": [
+          30,
+          479
+        ],
+        "iz": [
+          151,
+          173
+        ]
+      },
+      "solidity": {
+        "columns": 53362,
+        "solidColumns": 53362,
+        "filledVoxels": 181391,
+        "columnIntervalVoxels": 181391,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "303",
+      "code": "303",
+      "label": "GEO_FORMV2: 303_Hamilton Group",
+      "name": "Hamilton Group",
+      "group": "Hamilton",
+      "age": "Devonian",
+      "color": "#af6d33",
+      "count": 559177,
+      "file": "points/303_Hamilton_Group.bin",
+      "bytes": 2795885,
+      "bbox": {
+        "ix": [
+          37,
+          753
+        ],
+        "iy": [
+          11,
+          603
+        ],
+        "iz": [
+          145,
+          173
+        ]
+      },
+      "solidity": {
+        "columns": 98174,
+        "solidColumns": 98174,
+        "filledVoxels": 559177,
+        "columnIntervalVoxels": 559177,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "305",
+      "code": "305",
+      "label": "GEO_FORMV2: 305_Marcellus",
+      "name": "Marcellus",
+      "group": "Hamilton",
+      "age": "Devonian",
+      "color": "#bb7436",
+      "count": 25853,
+      "file": "points/305_Marcellus.bin",
+      "bytes": 129265,
+      "bbox": {
+        "ix": [
+          143,
+          741
+        ],
+        "iy": [
+          104,
+          326
+        ],
+        "iz": [
+          145,
+          168
+        ]
+      },
+      "solidity": {
+        "columns": 18135,
+        "solidColumns": 18135,
+        "filledVoxels": 25853,
+        "columnIntervalVoxels": 25853,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "306",
+      "code": "306",
+      "label": "GEO_FORMV2: 306_Dundee",
+      "name": "Dundee",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#c67c3b",
+      "count": 533706,
+      "file": "points/306_Dundee.bin",
+      "bytes": 2668530,
+      "bbox": {
+        "ix": [
+          10,
+          861
+        ],
+        "iy": [
+          0,
+          651
+        ],
+        "iz": [
+          142,
+          186
+        ]
+      },
+      "solidity": {
+        "columns": 173873,
+        "solidColumns": 173873,
+        "filledVoxels": 533706,
+        "columnIntervalVoxels": 533706,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "308",
+      "code": "308",
+      "label": "GEO_FORMV2: 308_Columbus",
+      "name": "Columbus",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#ca8447",
+      "count": 19706,
+      "file": "points/308_Columbus.bin",
+      "bytes": 98530,
+      "bbox": {
+        "ix": [
+          36,
+          577
+        ],
+        "iy": [
+          0,
+          564
+        ],
+        "iz": [
+          141,
+          181
+        ]
+      },
+      "solidity": {
+        "columns": 18180,
+        "solidColumns": 18180,
+        "filledVoxels": 19706,
+        "columnIntervalVoxels": 19706,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "309",
+      "code": "309",
+      "label": "GEO_FORMV2: 309_Lucas",
+      "name": "Lucas",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#cd8c53",
+      "count": 1063825,
+      "file": "points/309_Lucas.bin",
+      "bytes": 5319125,
+      "bbox": {
+        "ix": [
+          4,
+          721
+        ],
+        "iy": [
+          0,
+          803
+        ],
+        "iz": [
+          132,
+          187
+        ]
+      },
+      "solidity": {
+        "columns": 202911,
+        "solidColumns": 202911,
+        "filledVoxels": 1063825,
+        "columnIntervalVoxels": 1063825,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "311",
+      "code": "311",
+      "label": "GEO_FORMV2: 311_Amherstburg",
+      "name": "Amherstburg",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#d1945f",
+      "count": 861286,
+      "file": "points/311_Amherstburg.bin",
+      "bytes": 4306430,
+      "bbox": {
+        "ix": [
+          3,
+          869
+        ],
+        "iy": [
+          0,
+          822
+        ],
+        "iz": [
+          127,
+          189
+        ]
+      },
+      "solidity": {
+        "columns": 240089,
+        "solidColumns": 240089,
+        "filledVoxels": 861286,
+        "columnIntervalVoxels": 861286,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "312",
+      "code": "312",
+      "label": "GEO_FORMV2: 312_Sylvania",
+      "name": "Sylvania",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#d49c6c",
+      "count": 15039,
+      "file": "points/312_Sylvania.bin",
+      "bytes": 75195,
+      "bbox": {
+        "ix": [
+          0,
+          756
+        ],
+        "iy": [
+          0,
+          338
+        ],
+        "iz": [
+          140,
+          168
+        ]
+      },
+      "solidity": {
+        "columns": 7340,
+        "solidColumns": 7340,
+        "filledVoxels": 15039,
+        "columnIntervalVoxels": 15039,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "314",
+      "code": "314",
+      "label": "GEO_FORMV2: 314_Bois Blanc",
+      "name": "Bois Blanc",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#d8a578",
+      "count": 785562,
+      "file": "points/314_Bois_Blanc.bin",
+      "bytes": 3927810,
+      "bbox": {
+        "ix": [
+          4,
+          868
+        ],
+        "iy": [
+          8,
+          829
+        ],
+        "iz": [
+          122,
+          190
+        ]
+      },
+      "solidity": {
+        "columns": 251937,
+        "solidColumns": 251937,
+        "filledVoxels": 785562,
+        "columnIntervalVoxels": 785562,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "315",
+      "code": "315",
+      "label": "GEO_FORMV2: 315_Springvale",
+      "name": "Springvale",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#dbad84",
+      "count": 6793,
+      "file": "points/315_Springvale.bin",
+      "bytes": 33965,
+      "bbox": {
+        "ix": [
+          12,
+          756
+        ],
+        "iy": [
+          31,
+          387
+        ],
+        "iz": [
+          127,
+          171
+        ]
+      },
+      "solidity": {
+        "columns": 5595,
+        "solidColumns": 5595,
+        "filledVoxels": 6793,
+        "columnIntervalVoxels": 6793,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "318",
+      "code": "318",
+      "label": "GEO_FORMV2: 318_Oriskany",
+      "name": "Oriskany",
+      "group": "Detroit River",
+      "age": "Devonian",
+      "color": "#dfb590",
+      "count": 10327,
+      "file": "points/318_Oriskany.bin",
+      "bytes": 51635,
+      "bbox": {
+        "ix": [
+          14,
+          714
+        ],
+        "iy": [
+          32,
+          701
+        ],
+        "iz": [
+          130,
+          173
+        ]
+      },
+      "solidity": {
+        "columns": 9162,
+        "solidColumns": 9162,
+        "filledVoxels": 10327,
+        "columnIntervalVoxels": 10327,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "400",
+      "code": "400",
+      "label": "GEO_FORMV2: 400_Bass Islands/Bertie",
+      "name": "Bass Islands/Bertie",
+      "group": "Bass Islands",
+      "age": "Silurian",
+      "color": "#2c9688",
+      "count": 1103133,
+      "file": "points/400_Bass_Islands_Bertie.bin",
+      "bytes": 5515665,
+      "bbox": {
+        "ix": [
+          0,
+          871
+        ],
+        "iy": [
+          0,
+          936
+        ],
+        "iz": [
+          115,
+          190
+        ]
+      },
+      "solidity": {
+        "columns": 270410,
+        "solidColumns": 270410,
+        "filledVoxels": 1103133,
+        "columnIntervalVoxels": 1103133,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "401",
+      "code": "401",
+      "label": "GEO_FORMV2: 401_G Unit",
+      "name": "G Unit",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#2d9a8c",
+      "count": 281976,
+      "file": "points/401_G_Unit.bin",
+      "bytes": 1409880,
+      "bbox": {
+        "ix": [
+          0,
+          868
+        ],
+        "iy": [
+          0,
+          834
+        ],
+        "iz": [
+          113,
+          186
+        ]
+      },
+      "solidity": {
+        "columns": 192312,
+        "solidColumns": 192312,
+        "filledVoxels": 281976,
+        "columnIntervalVoxels": 281976,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "402",
+      "code": "402",
+      "label": "GEO_FORMV2: 402_F Unit",
+      "name": "F Unit",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#2e9f90",
+      "count": 1012442,
+      "file": "points/402_F_Unit.bin",
+      "bytes": 5062210,
+      "bbox": {
+        "ix": [
+          1,
+          871
+        ],
+        "iy": [
+          0,
+          951
+        ],
+        "iz": [
+          108,
+          191
+        ]
+      },
+      "solidity": {
+        "columns": 280856,
+        "solidColumns": 280856,
+        "filledVoxels": 1012442,
+        "columnIntervalVoxels": 1012442,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "403",
+      "code": "403",
+      "label": "GEO_FORMV2: 403_F Salt",
+      "name": "F Salt",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#2fa393",
+      "count": 157943,
+      "file": "points/403_F_Salt.bin",
+      "bytes": 789715,
+      "bbox": {
+        "ix": [
+          4,
+          825
+        ],
+        "iy": [
+          136,
+          774
+        ],
+        "iz": [
+          102,
+          158
+        ]
+      },
+      "solidity": {
+        "columns": 39606,
+        "solidColumns": 39606,
+        "filledVoxels": 157943,
+        "columnIntervalVoxels": 157943,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "404",
+      "code": "404",
+      "label": "GEO_FORMV2: 404_E Unit",
+      "name": "E Unit",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#30a797",
+      "count": 1038653,
+      "file": "points/404_E_Unit.bin",
+      "bytes": 5193265,
+      "bbox": {
+        "ix": [
+          0,
+          871
+        ],
+        "iy": [
+          0,
+          957
+        ],
+        "iz": [
+          99,
+          193
+        ]
+      },
+      "solidity": {
+        "columns": 306183,
+        "solidColumns": 306183,
+        "filledVoxels": 1038653,
+        "columnIntervalVoxels": 1038653,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "405",
+      "code": "405",
+      "label": "GEO_FORMV2: 405_D Unit",
+      "name": "D Unit",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#32ab9b",
+      "count": 59137,
+      "file": "points/405_D_Unit.bin",
+      "bytes": 295685,
+      "bbox": {
+        "ix": [
+          2,
+          804
+        ],
+        "iy": [
+          35,
+          717
+        ],
+        "iz": [
+          99,
+          173
+        ]
+      },
+      "solidity": {
+        "columns": 52369,
+        "solidColumns": 52369,
+        "filledVoxels": 59137,
+        "columnIntervalVoxels": 59137,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "406",
+      "code": "406",
+      "label": "GEO_FORMV2: 406_C Unit",
+      "name": "C Unit",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#33af9f",
+      "count": 573919,
+      "file": "points/406_C_Unit.bin",
+      "bytes": 2869595,
+      "bbox": {
+        "ix": [
+          0,
+          870
+        ],
+        "iy": [
+          0,
+          979
+        ],
+        "iz": [
+          96,
+          195
+        ]
+      },
+      "solidity": {
+        "columns": 301741,
+        "solidColumns": 301741,
+        "filledVoxels": 573919,
+        "columnIntervalVoxels": 573919,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "407",
+      "code": "407",
+      "label": "GEO_FORMV2: 407_B Unit",
+      "name": "B Unit",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#34b4a3",
+      "count": 300401,
+      "file": "points/407_B_Unit.bin",
+      "bytes": 1502005,
+      "bbox": {
+        "ix": [
+          0,
+          869
+        ],
+        "iy": [
+          0,
+          948
+        ],
+        "iz": [
+          92,
+          188
+        ]
+      },
+      "solidity": {
+        "columns": 205223,
+        "solidColumns": 205223,
+        "filledVoxels": 300401,
+        "columnIntervalVoxels": 300401,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "408",
+      "code": "408",
+      "label": "GEO_FORMV2: 408_B Equivalent",
+      "name": "B Equivalent",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#35b8a6",
+      "count": 40975,
+      "file": "points/408_B_Equivalent.bin",
+      "bytes": 204875,
+      "bbox": {
+        "ix": [
+          11,
+          808
+        ],
+        "iy": [
+          0,
+          729
+        ],
+        "iz": [
+          93,
+          173
+        ]
+      },
+      "solidity": {
+        "columns": 38295,
+        "solidColumns": 38295,
+        "filledVoxels": 40975,
+        "columnIntervalVoxels": 40975,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "409",
+      "code": "409",
+      "label": "GEO_FORMV2: 409_B Salt",
+      "name": "B Salt",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#37bcaa",
+      "count": 690626,
+      "file": "points/409_B_Salt.bin",
+      "bytes": 3453130,
+      "bbox": {
+        "ix": [
+          3,
+          804
+        ],
+        "iy": [
+          34,
+          939
+        ],
+        "iz": [
+          86,
+          166
+        ]
+      },
+      "solidity": {
+        "columns": 134190,
+        "solidColumns": 134190,
+        "filledVoxels": 690626,
+        "columnIntervalVoxels": 690626,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "410",
+      "code": "410",
+      "label": "GEO_FORMV2: 410_B Anhydrite",
+      "name": "B Anhydrite",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#38c0ae",
+      "count": 71540,
+      "file": "points/410_B_Anhydrite.bin",
+      "bytes": 357700,
+      "bbox": {
+        "ix": [
+          0,
+          835
+        ],
+        "iy": [
+          0,
+          748
+        ],
+        "iz": [
+          85,
+          178
+        ]
+      },
+      "solidity": {
+        "columns": 67925,
+        "solidColumns": 67925,
+        "filledVoxels": 71540,
+        "columnIntervalVoxels": 71540,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "411",
+      "code": "411",
+      "label": "GEO_FORMV2: 411_A-2 Carbonate",
+      "name": "A-2 Carbonate",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#39c4b2",
+      "count": 652198,
+      "file": "points/411_A_2_Carbonate.bin",
+      "bytes": 3260990,
+      "bbox": {
+        "ix": [
+          0,
+          868
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          84,
+          196
+        ]
+      },
+      "solidity": {
+        "columns": 301450,
+        "solidColumns": 301450,
+        "filledVoxels": 652198,
+        "columnIntervalVoxels": 652198,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "412",
+      "code": "412",
+      "label": "GEO_FORMV2: 412_A-2 Shale",
+      "name": "A-2 Shale",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#3cc6b4",
+      "count": 79783,
+      "file": "points/412_A_2_Shale.bin",
+      "bytes": 398915,
+      "bbox": {
+        "ix": [
+          13,
+          805
+        ],
+        "iy": [
+          0,
+          796
+        ],
+        "iz": [
+          84,
+          185
+        ]
+      },
+      "solidity": {
+        "columns": 59456,
+        "solidColumns": 59456,
+        "filledVoxels": 79783,
+        "columnIntervalVoxels": 79783,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "413",
+      "code": "413",
+      "label": "GEO_FORMV2: 413_A-2 Salt",
+      "name": "A-2 Salt",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#41c8b6",
+      "count": 235057,
+      "file": "points/413_A_2_Salt.bin",
+      "bytes": 1175285,
+      "bbox": {
+        "ix": [
+          8,
+          574
+        ],
+        "iy": [
+          96,
+          987
+        ],
+        "iz": [
+          79,
+          154
+        ]
+      },
+      "solidity": {
+        "columns": 65814,
+        "solidColumns": 65814,
+        "filledVoxels": 235057,
+        "columnIntervalVoxels": 235057,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "414",
+      "code": "414",
+      "label": "GEO_FORMV2: 414_A-2 Anhydrite",
+      "name": "A-2 Anhydrite",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#45c9b7",
+      "count": 65408,
+      "file": "points/414_A_2_Anhydrite.bin",
+      "bytes": 327040,
+      "bbox": {
+        "ix": [
+          0,
+          833
+        ],
+        "iy": [
+          0,
+          734
+        ],
+        "iz": [
+          79,
+          179
+        ]
+      },
+      "solidity": {
+        "columns": 60193,
+        "solidColumns": 60193,
+        "filledVoxels": 65408,
+        "columnIntervalVoxels": 65408,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "415",
+      "code": "415",
+      "label": "GEO_FORMV2: 415_A-1 Carbonate",
+      "name": "A-1 Carbonate",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#49cab9",
+      "count": 724489,
+      "file": "points/415_A_1_Carbonate.bin",
+      "bytes": 3622445,
+      "bbox": {
+        "ix": [
+          3,
+          860
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          70,
+          194
+        ]
+      },
+      "solidity": {
+        "columns": 252412,
+        "solidColumns": 252412,
+        "filledVoxels": 724489,
+        "columnIntervalVoxels": 724489,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "416",
+      "code": "416",
+      "label": "GEO_FORMV2: 416_A-1 Evaporite",
+      "name": "A-1 Evaporite",
+      "group": "Salina",
+      "age": "Silurian",
+      "color": "#4dcbbb",
+      "count": 284329,
+      "file": "points/416_A_1_Evaporite.bin",
+      "bytes": 1421645,
+      "bbox": {
+        "ix": [
+          5,
+          824
+        ],
+        "iy": [
+          39,
+          977
+        ],
+        "iz": [
+          69,
+          177
+        ]
+      },
+      "solidity": {
+        "columns": 86303,
+        "solidColumns": 86303,
+        "filledVoxels": 284329,
+        "columnIntervalVoxels": 284329,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "418",
+      "code": "418",
+      "label": "GEO_FORMV2: 418_Guelph",
+      "name": "Guelph",
+      "group": "Lockport",
+      "age": "Silurian",
+      "color": "#51cdbc",
+      "count": 1109358,
+      "file": "points/418_Guelph.bin",
+      "bytes": 5546790,
+      "bbox": {
+        "ix": [
+          0,
+          871
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          72,
+          204
+        ]
+      },
+      "solidity": {
+        "columns": 330779,
+        "solidColumns": 330779,
+        "filledVoxels": 1109358,
+        "columnIntervalVoxels": 1109358,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "420",
+      "code": "420",
+      "label": "GEO_FORMV2: 420_Eramosa",
+      "name": "Eramosa",
+      "group": "Lockport",
+      "age": "Silurian",
+      "color": "#56cebe",
+      "count": 102444,
+      "file": "points/420_Eramosa.bin",
+      "bytes": 512220,
+      "bbox": {
+        "ix": [
+          0,
+          869
+        ],
+        "iy": [
+          101,
+          991
+        ],
+        "iz": [
+          69,
+          201
+        ]
+      },
+      "solidity": {
+        "columns": 60354,
+        "solidColumns": 60354,
+        "filledVoxels": 102444,
+        "columnIntervalVoxels": 102444,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "421",
+      "code": "421",
+      "label": "GEO_FORMV2: 421_Goat Island",
+      "name": "Goat Island",
+      "group": "Lockport",
+      "age": "Silurian",
+      "color": "#5acfbf",
+      "count": 1070116,
+      "file": "points/421_Goat_Island.bin",
+      "bytes": 5350580,
+      "bbox": {
+        "ix": [
+          0,
+          867
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          69,
+          204
+        ]
+      },
+      "solidity": {
+        "columns": 381197,
+        "solidColumns": 381197,
+        "filledVoxels": 1070116,
+        "columnIntervalVoxels": 1070116,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "422",
+      "code": "422",
+      "label": "GEO_FORMV2: 422_Gasport",
+      "name": "Gasport",
+      "group": "Lockport",
+      "age": "Silurian",
+      "color": "#5ed0c1",
+      "count": 546012,
+      "file": "points/422_Gasport.bin",
+      "bytes": 2730060,
+      "bbox": {
+        "ix": [
+          0,
+          868
+        ],
+        "iy": [
+          0,
+          991
+        ],
+        "iz": [
+          68,
+          203
+        ]
+      },
+      "solidity": {
+        "columns": 279565,
+        "solidColumns": 279565,
+        "filledVoxels": 546012,
+        "columnIntervalVoxels": 546012,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "426",
+      "code": "426",
+      "label": "GEO_FORMV2: 426_Decew",
+      "name": "DeCew",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#62d1c3",
+      "count": 42828,
+      "file": "points/426_Decew.bin",
+      "bytes": 214140,
+      "bbox": {
+        "ix": [
+          4,
+          840
+        ],
+        "iy": [
+          16,
+          423
+        ],
+        "iz": [
+          70,
+          170
+        ]
+      },
+      "solidity": {
+        "columns": 33806,
+        "solidColumns": 33806,
+        "filledVoxels": 42828,
+        "columnIntervalVoxels": 42828,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "428",
+      "code": "428",
+      "label": "GEO_FORMV2: 428_Rochester (Lion's Head)",
+      "name": "Rochester (Lion's Head)",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#66d3c4",
+      "count": 430563,
+      "file": "points/428_Rochester_Lion_s_Head.bin",
+      "bytes": 2152815,
+      "bbox": {
+        "ix": [
+          4,
+          870
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          67,
+          198
+        ]
+      },
+      "solidity": {
+        "columns": 274538,
+        "solidColumns": 274538,
+        "filledVoxels": 430563,
+        "columnIntervalVoxels": 430563,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "429",
+      "code": "429",
+      "label": "GEO_FORMV2: 429_Irondequoit-Fossil Hill-Reynales",
+      "name": "Irondequoit-Fossil Hill-Reynales",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#6bd4c6",
+      "count": 232236,
+      "file": "points/429_Irondequoit_Fossil_Hill_Reynales.bin",
+      "bytes": 1161180,
+      "bbox": {
+        "ix": [
+          0,
+          871
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          67,
+          202
+        ]
+      },
+      "solidity": {
+        "columns": 182293,
+        "solidColumns": 182293,
+        "filledVoxels": 232236,
+        "columnIntervalVoxels": 232236,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "430",
+      "code": "430",
+      "label": "GEO_FORMV2: 430_St Edmund",
+      "name": "St Edmund",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#6fd5c7",
+      "count": 8350,
+      "file": "points/430_St_Edmund.bin",
+      "bytes": 41750,
+      "bbox": {
+        "ix": [
+          250,
+          419
+        ],
+        "iy": [
+          812,
+          991
+        ],
+        "iz": [
+          141,
+          170
+        ]
+      },
+      "solidity": {
+        "columns": 4482,
+        "solidColumns": 4482,
+        "filledVoxels": 8350,
+        "columnIntervalVoxels": 8350,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "431",
+      "code": "431",
+      "label": "GEO_FORMV2: 431_Wingfield",
+      "name": "Wingfield",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#73d6c9",
+      "count": 5269,
+      "file": "points/431_Wingfield.bin",
+      "bytes": 26345,
+      "bbox": {
+        "ix": [
+          312,
+          453
+        ],
+        "iy": [
+          798,
+          992
+        ],
+        "iz": [
+          154,
+          177
+        ]
+      },
+      "solidity": {
+        "columns": 5003,
+        "solidColumns": 5003,
+        "filledVoxels": 5269,
+        "columnIntervalVoxels": 5269,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "432",
+      "code": "432",
+      "label": "GEO_FORMV2: 432_Dyer Bay",
+      "name": "Dyer Bay",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#77d8cb",
+      "count": 20242,
+      "file": "points/432_Dyer_Bay.bin",
+      "bytes": 101210,
+      "bbox": {
+        "ix": [
+          11,
+          833
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          90,
+          178
+        ]
+      },
+      "solidity": {
+        "columns": 16574,
+        "solidColumns": 16574,
+        "filledVoxels": 20242,
+        "columnIntervalVoxels": 20242,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "433",
+      "code": "433",
+      "label": "GEO_FORMV2: 433_Neahga",
+      "name": "Neahga",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#7bd9cc",
+      "count": 158,
+      "file": "points/433_Neahga.bin",
+      "bytes": 790,
+      "bbox": {
+        "ix": [
+          559,
+          850
+        ],
+        "iy": [
+          278,
+          409
+        ],
+        "iz": [
+          136,
+          166
+        ]
+      },
+      "solidity": {
+        "columns": 158,
+        "solidColumns": 158,
+        "filledVoxels": 158,
+        "columnIntervalVoxels": 158,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "434",
+      "code": "434",
+      "label": "GEO_FORMV2: 434_Thorold",
+      "name": "Thorold",
+      "group": "Clinton",
+      "age": "Silurian",
+      "color": "#80dace",
+      "count": 19117,
+      "file": "points/434_Thorold.bin",
+      "bytes": 95585,
+      "bbox": {
+        "ix": [
+          222,
+          866
+        ],
+        "iy": [
+          48,
+          480
+        ],
+        "iz": [
+          99,
+          175
+        ]
+      },
+      "solidity": {
+        "columns": 18087,
+        "solidColumns": 18087,
+        "filledVoxels": 19117,
+        "columnIntervalVoxels": 19117,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "439",
+      "code": "439",
+      "label": "GEO_FORMV2: 439_Grimsby",
+      "name": "Grimsby",
+      "group": "Medina",
+      "age": "Silurian",
+      "color": "#84dbd0",
+      "count": 103010,
+      "file": "points/439_Grimsby.bin",
+      "bytes": 515050,
+      "bbox": {
+        "ix": [
+          34,
+          871
+        ],
+        "iy": [
+          23,
+          525
+        ],
+        "iz": [
+          97,
+          177
+        ]
+      },
+      "solidity": {
+        "columns": 74858,
+        "solidColumns": 74858,
+        "filledVoxels": 103010,
+        "columnIntervalVoxels": 103010,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "440",
+      "code": "440",
+      "label": "GEO_FORMV2: 440_Cabot Head",
+      "name": "Cabot Head",
+      "group": "Medina",
+      "age": "Silurian",
+      "color": "#88dcd1",
+      "count": 816565,
+      "file": "points/440_Cabot_Head.bin",
+      "bytes": 4082825,
+      "bbox": {
+        "ix": [
+          0,
+          868
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          65,
+          201
+        ]
+      },
+      "solidity": {
+        "columns": 383915,
+        "solidColumns": 383915,
+        "filledVoxels": 816565,
+        "columnIntervalVoxels": 816565,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "441",
+      "code": "441",
+      "label": "GEO_FORMV2: 441_Manitoulin",
+      "name": "Manitoulin",
+      "group": "Medina",
+      "age": "Silurian",
+      "color": "#8cded3",
+      "count": 473394,
+      "file": "points/441_Manitoulin.bin",
+      "bytes": 2366970,
+      "bbox": {
+        "ix": [
+          0,
+          848
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          64,
+          199
+        ]
+      },
+      "solidity": {
+        "columns": 305674,
+        "solidColumns": 305674,
+        "filledVoxels": 473394,
+        "columnIntervalVoxels": 473394,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "442",
+      "code": "442",
+      "label": "GEO_FORMV2: 442_Whirlpool",
+      "name": "Whirlpool",
+      "group": "Medina",
+      "age": "Silurian",
+      "color": "#90dfd4",
+      "count": 51420,
+      "file": "points/442_Whirlpool.bin",
+      "bytes": 257100,
+      "bbox": {
+        "ix": [
+          159,
+          871
+        ],
+        "iy": [
+          91,
+          777
+        ],
+        "iz": [
+          96,
+          199
+        ]
+      },
+      "solidity": {
+        "columns": 41813,
+        "solidColumns": 41813,
+        "filledVoxels": 51420,
+        "columnIntervalVoxels": 51420,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "500",
+      "code": "500",
+      "label": "GEO_FORMV2: 500_Queenston",
+      "name": "Queenston",
+      "group": "Queenston",
+      "age": "Ordovician",
+      "color": "#2c963d",
+      "count": 5368798,
+      "file": "points/500_Queenston.bin",
+      "bytes": 26843990,
+      "bbox": {
+        "ix": [
+          0,
+          871
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          53,
+          199
+        ]
+      },
+      "solidity": {
+        "columns": 438227,
+        "solidColumns": 438227,
+        "filledVoxels": 5368798,
+        "columnIntervalVoxels": 5368798,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "502",
+      "code": "502",
+      "label": "GEO_FORMV2: 502_Georgian Bay-Blue Mountain",
+      "name": "Georgian Bay-Blue Mountain",
+      "group": "Georgian Bay",
+      "age": "Ordovician",
+      "color": "#31a945",
+      "count": 8150722,
+      "file": "points/502_Georgian_Bay_Blue_Mountain.bin",
+      "bytes": 40753610,
+      "bbox": {
+        "ix": [
+          0,
+          918
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          42,
+          189
+        ]
+      },
+      "solidity": {
+        "columns": 483808,
+        "solidColumns": 483808,
+        "filledVoxels": 8150722,
+        "columnIntervalVoxels": 8150722,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "511",
+      "code": "511",
+      "label": "GEO_FORMV2: 511_Cobourg",
+      "name": "Cobourg",
+      "group": "Trenton",
+      "age": "Ordovician",
+      "color": "#37bd4d",
+      "count": 2173714,
+      "file": "points/511_Cobourg.bin",
+      "bytes": 10868570,
+      "bbox": {
+        "ix": [
+          0,
+          1333
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          37,
+          181
+        ]
+      },
+      "solidity": {
+        "columns": 561104,
+        "solidColumns": 561104,
+        "filledVoxels": 2173714,
+        "columnIntervalVoxels": 2173714,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "515",
+      "code": "515",
+      "label": "GEO_FORMV2: 515_Sherman Fall",
+      "name": "Sherman Fall",
+      "group": "Trenton",
+      "age": "Ordovician",
+      "color": "#44c95a",
+      "count": 2730723,
+      "file": "points/515_Sherman_Fall.bin",
+      "bytes": 13653615,
+      "bbox": {
+        "ix": [
+          0,
+          1376
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          33,
+          182
+        ]
+      },
+      "solidity": {
+        "columns": 613269,
+        "solidColumns": 613269,
+        "filledVoxels": 2730723,
+        "columnIntervalVoxels": 2730723,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "517",
+      "code": "517",
+      "label": "GEO_FORMV2: 517_Kirkfield",
+      "name": "Kirkfield",
+      "group": "Trenton",
+      "age": "Ordovician",
+      "color": "#57ce6b",
+      "count": 2474703,
+      "file": "points/517_Kirkfield.bin",
+      "bytes": 12373515,
+      "bbox": {
+        "ix": [
+          0,
+          1375
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          27,
+          182
+        ]
+      },
+      "solidity": {
+        "columns": 630115,
+        "solidColumns": 630115,
+        "filledVoxels": 2474703,
+        "columnIntervalVoxels": 2474703,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "519",
+      "code": "519",
+      "label": "GEO_FORMV2: 519_Coboconk",
+      "name": "Coboconk",
+      "group": "Black River",
+      "age": "Ordovician",
+      "color": "#6ad47c",
+      "count": 1439637,
+      "file": "points/519_Coboconk.bin",
+      "bytes": 7198185,
+      "bbox": {
+        "ix": [
+          0,
+          1369
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          23,
+          182
+        ]
+      },
+      "solidity": {
+        "columns": 596518,
+        "solidColumns": 596518,
+        "filledVoxels": 1439637,
+        "columnIntervalVoxels": 1439637,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "522",
+      "code": "522",
+      "label": "GEO_FORMV2: 522_Gull River",
+      "name": "Gull River",
+      "group": "Black River",
+      "age": "Ordovician",
+      "color": "#7dd98c",
+      "count": 3579721,
+      "file": "points/522_Gull_River.bin",
+      "bytes": 17898605,
+      "bbox": {
+        "ix": [
+          0,
+          1406
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          18,
+          181
+        ]
+      },
+      "solidity": {
+        "columns": 664095,
+        "solidColumns": 664095,
+        "filledVoxels": 3579721,
+        "columnIntervalVoxels": 3579721,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "523",
+      "code": "523",
+      "label": "GEO_FORMV2: 523_Shadow Lake",
+      "name": "Shadow Lake",
+      "group": "Black River",
+      "age": "Ordovician",
+      "color": "#90df9d",
+      "count": 890953,
+      "file": "points/523_Shadow_Lake.bin",
+      "bytes": 4454765,
+      "bbox": {
+        "ix": [
+          0,
+          1402
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          16,
+          180
+        ]
+      },
+      "solidity": {
+        "columns": 503780,
+        "solidColumns": 503780,
+        "filledVoxels": 890953,
+        "columnIntervalVoxels": 890953,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "600",
+      "code": "600",
+      "label": "GEO_FORMV2: 600_Cambrian",
+      "name": "Cambrian",
+      "group": "-",
+      "age": "Cambrian",
+      "color": "#88cb4d",
+      "count": 1889467,
+      "file": "points/600_Cambrian.bin",
+      "bytes": 9447335,
+      "bbox": {
+        "ix": [
+          0,
+          1407
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          2,
+          164
+        ]
+      },
+      "solidity": {
+        "columns": 290672,
+        "solidColumns": 290672,
+        "filledVoxels": 1889467,
+        "columnIntervalVoxels": 1889467,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    },
+    {
+      "id": "700",
+      "code": "700",
+      "label": "GEO_FORMV2: 700_Precambrian",
+      "name": "Precambrian",
+      "group": "-",
+      "age": "Precambrian",
+      "color": "#cb4d90",
+      "count": 70548131,
+      "file": "points/700_Precambrian.bin",
+      "bytes": 352740655,
+      "bbox": {
+        "ix": [
+          0,
+          1409
+        ],
+        "iy": [
+          0,
+          995
+        ],
+        "iz": [
+          0,
+          180
+        ]
+      },
+      "solidity": {
+        "columns": 687046,
+        "solidColumns": 687046,
+        "filledVoxels": 70548131,
+        "columnIntervalVoxels": 70548131,
+        "internalHoleVoxels": 0,
+        "solidityPct": 100,
+        "solidColumnPct": 100
+      }
+    }
+  ],
+  "summary": {
+    "totalPoints": 117909004,
+    "gridCells": 289298160,
+    "occupiedVoxelFraction": 0.4076,
+    "worldBBox": {
+      "x": [
+        322400,
+        886000
+      ],
+      "y": [
+        4615200,
+        5013200
+      ],
+      "z": [
+        -1520,
+        530
+      ]
+    },
+    "indexBBox": {
+      "ix": [
+        0,
+        1409
+      ],
+      "iy": [
+        0,
+        995
+      ],
+      "iz": [
+        0,
+        205
+      ]
+    },
+    "units": "meters (NAD83 UTM easting/northing; EGM96 elevation)",
+    "ageSummary": {
+      "Quaternary": {
+        "layers": 1,
+        "points": 2195283
+      },
+      "Devonian": {
+        "layers": 12,
+        "points": 4064061
+      },
+      "Silurian": {
+        "layers": 33,
+        "points": 12403091
+      },
+      "Ordovician": {
+        "layers": 8,
+        "points": 26808971
+      },
+      "Cambrian": {
+        "layers": 1,
+        "points": 1889467
+      },
+      "Precambrian": {
+        "layers": 1,
+        "points": 70548131
+      }
+    }
+  },
+  "qa": {
+    "overlapCollisions": 0,
+    "superpositionInversions": 0,
+    "occupiedColumns": 687046,
+    "solidity": {
+      "filledVoxels": 117909004,
+      "columnIntervalVoxels": 117909004,
+      "internalHoleVoxels": 0,
+      "overallSolidityPct": 100,
+      "solidColumnPct": 100,
+      "note": "solidityPct ~100 confirms layers are filled solids (contiguous interior), not hollow shells."
+    },
+    "faults": "none — GRS019 explicitly has no representation of mapped faults (report p.29/30); conformable layer-cake."
+  },
+  "products": {
+    "manifest.json": "grid metadata + 56 layer records + summary + qa (this file)",
+    "points/*.bin": "per-layer sparse voxel-index points (ix:u16, iy:u16, iz:u8 = 5 B/pt) — filled solid as points",
+    "volume/volume_u8.bin.gz": "dense uint8 stratigraphic-ordinal volume (filled solid, canonical) — for slicing / volume rendering",
+    "volume/volume.json": "volume header + ordinal->layer map",
+    "geo_qa_report.json": "overlap & superposition integrity check"
+  }
+}

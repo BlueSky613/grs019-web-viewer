@@ -1,0 +1,472 @@
+{
+  "description": "Dense stratigraphic-ordinal volume (FILLED solid). uint8 per voxel; 0=empty, 1..56=layer ordinal.",
+  "encoding": "raw uint8, x-fastest: index = ix + nx*(iy + ny*iz), gzip-compressed",
+  "dims": [
+    1410,
+    996,
+    206
+  ],
+  "origin": [
+    322400,
+    4615200,
+    -1520
+  ],
+  "spacing": [
+    400,
+    400,
+    10
+  ],
+  "empty": 0,
+  "bytesRaw": 289298160,
+  "bytesGz": 3496038,
+  "ordinalToLayer": [
+    {
+      "ordinal": 1,
+      "code": "001",
+      "name": "Overburden",
+      "age": "Quaternary",
+      "group": "-",
+      "color": "#cbb24d"
+    },
+    {
+      "ordinal": 2,
+      "code": "300",
+      "name": "Port Lambton Group",
+      "age": "Devonian",
+      "group": "Port Lambton",
+      "color": "#965d2c"
+    },
+    {
+      "ordinal": 3,
+      "code": "301",
+      "name": "Kettle Point",
+      "age": "Devonian",
+      "group": "Kettle Point",
+      "color": "#a2652f"
+    },
+    {
+      "ordinal": 4,
+      "code": "303",
+      "name": "Hamilton Group",
+      "age": "Devonian",
+      "group": "Hamilton",
+      "color": "#af6d33"
+    },
+    {
+      "ordinal": 5,
+      "code": "305",
+      "name": "Marcellus",
+      "age": "Devonian",
+      "group": "Hamilton",
+      "color": "#bb7436"
+    },
+    {
+      "ordinal": 6,
+      "code": "306",
+      "name": "Dundee",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#c67c3b"
+    },
+    {
+      "ordinal": 7,
+      "code": "308",
+      "name": "Columbus",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#ca8447"
+    },
+    {
+      "ordinal": 8,
+      "code": "309",
+      "name": "Lucas",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#cd8c53"
+    },
+    {
+      "ordinal": 9,
+      "code": "311",
+      "name": "Amherstburg",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#d1945f"
+    },
+    {
+      "ordinal": 10,
+      "code": "312",
+      "name": "Sylvania",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#d49c6c"
+    },
+    {
+      "ordinal": 11,
+      "code": "314",
+      "name": "Bois Blanc",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#d8a578"
+    },
+    {
+      "ordinal": 12,
+      "code": "315",
+      "name": "Springvale",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#dbad84"
+    },
+    {
+      "ordinal": 13,
+      "code": "318",
+      "name": "Oriskany",
+      "age": "Devonian",
+      "group": "Detroit River",
+      "color": "#dfb590"
+    },
+    {
+      "ordinal": 14,
+      "code": "400",
+      "name": "Bass Islands/Bertie",
+      "age": "Silurian",
+      "group": "Bass Islands",
+      "color": "#2c9688"
+    },
+    {
+      "ordinal": 15,
+      "code": "401",
+      "name": "G Unit",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#2d9a8c"
+    },
+    {
+      "ordinal": 16,
+      "code": "402",
+      "name": "F Unit",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#2e9f90"
+    },
+    {
+      "ordinal": 17,
+      "code": "403",
+      "name": "F Salt",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#2fa393"
+    },
+    {
+      "ordinal": 18,
+      "code": "404",
+      "name": "E Unit",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#30a797"
+    },
+    {
+      "ordinal": 19,
+      "code": "405",
+      "name": "D Unit",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#32ab9b"
+    },
+    {
+      "ordinal": 20,
+      "code": "406",
+      "name": "C Unit",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#33af9f"
+    },
+    {
+      "ordinal": 21,
+      "code": "407",
+      "name": "B Unit",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#34b4a3"
+    },
+    {
+      "ordinal": 22,
+      "code": "408",
+      "name": "B Equivalent",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#35b8a6"
+    },
+    {
+      "ordinal": 23,
+      "code": "409",
+      "name": "B Salt",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#37bcaa"
+    },
+    {
+      "ordinal": 24,
+      "code": "410",
+      "name": "B Anhydrite",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#38c0ae"
+    },
+    {
+      "ordinal": 25,
+      "code": "411",
+      "name": "A-2 Carbonate",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#39c4b2"
+    },
+    {
+      "ordinal": 26,
+      "code": "412",
+      "name": "A-2 Shale",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#3cc6b4"
+    },
+    {
+      "ordinal": 27,
+      "code": "413",
+      "name": "A-2 Salt",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#41c8b6"
+    },
+    {
+      "ordinal": 28,
+      "code": "414",
+      "name": "A-2 Anhydrite",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#45c9b7"
+    },
+    {
+      "ordinal": 29,
+      "code": "415",
+      "name": "A-1 Carbonate",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#49cab9"
+    },
+    {
+      "ordinal": 30,
+      "code": "416",
+      "name": "A-1 Evaporite",
+      "age": "Silurian",
+      "group": "Salina",
+      "color": "#4dcbbb"
+    },
+    {
+      "ordinal": 31,
+      "code": "418",
+      "name": "Guelph",
+      "age": "Silurian",
+      "group": "Lockport",
+      "color": "#51cdbc"
+    },
+    {
+      "ordinal": 32,
+      "code": "420",
+      "name": "Eramosa",
+      "age": "Silurian",
+      "group": "Lockport",
+      "color": "#56cebe"
+    },
+    {
+      "ordinal": 33,
+      "code": "421",
+      "name": "Goat Island",
+      "age": "Silurian",
+      "group": "Lockport",
+      "color": "#5acfbf"
+    },
+    {
+      "ordinal": 34,
+      "code": "422",
+      "name": "Gasport",
+      "age": "Silurian",
+      "group": "Lockport",
+      "color": "#5ed0c1"
+    },
+    {
+      "ordinal": 35,
+      "code": "426",
+      "name": "DeCew",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#62d1c3"
+    },
+    {
+      "ordinal": 36,
+      "code": "428",
+      "name": "Rochester (Lion's Head)",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#66d3c4"
+    },
+    {
+      "ordinal": 37,
+      "code": "429",
+      "name": "Irondequoit-Fossil Hill-Reynales",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#6bd4c6"
+    },
+    {
+      "ordinal": 38,
+      "code": "430",
+      "name": "St Edmund",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#6fd5c7"
+    },
+    {
+      "ordinal": 39,
+      "code": "431",
+      "name": "Wingfield",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#73d6c9"
+    },
+    {
+      "ordinal": 40,
+      "code": "432",
+      "name": "Dyer Bay",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#77d8cb"
+    },
+    {
+      "ordinal": 41,
+      "code": "433",
+      "name": "Neahga",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#7bd9cc"
+    },
+    {
+      "ordinal": 42,
+      "code": "434",
+      "name": "Thorold",
+      "age": "Silurian",
+      "group": "Clinton",
+      "color": "#80dace"
+    },
+    {
+      "ordinal": 43,
+      "code": "439",
+      "name": "Grimsby",
+      "age": "Silurian",
+      "group": "Medina",
+      "color": "#84dbd0"
+    },
+    {
+      "ordinal": 44,
+      "code": "440",
+      "name": "Cabot Head",
+      "age": "Silurian",
+      "group": "Medina",
+      "color": "#88dcd1"
+    },
+    {
+      "ordinal": 45,
+      "code": "441",
+      "name": "Manitoulin",
+      "age": "Silurian",
+      "group": "Medina",
+      "color": "#8cded3"
+    },
+    {
+      "ordinal": 46,
+      "code": "442",
+      "name": "Whirlpool",
+      "age": "Silurian",
+      "group": "Medina",
+      "color": "#90dfd4"
+    },
+    {
+      "ordinal": 47,
+      "code": "500",
+      "name": "Queenston",
+      "age": "Ordovician",
+      "group": "Queenston",
+      "color": "#2c963d"
+    },
+    {
+      "ordinal": 48,
+      "code": "502",
+      "name": "Georgian Bay-Blue Mountain",
+      "age": "Ordovician",
+      "group": "Georgian Bay",
+      "color": "#31a945"
+    },
+    {
+      "ordinal": 49,
+      "code": "511",
+      "name": "Cobourg",
+      "age": "Ordovician",
+      "group": "Trenton",
+      "color": "#37bd4d"
+    },
+    {
+      "ordinal": 50,
+      "code": "515",
+      "name": "Sherman Fall",
+      "age": "Ordovician",
+      "group": "Trenton",
+      "color": "#44c95a"
+    },
+    {
+      "ordinal": 51,
+      "code": "517",
+      "name": "Kirkfield",
+      "age": "Ordovician",
+      "group": "Trenton",
+      "color": "#57ce6b"
+    },
+    {
+      "ordinal": 52,
+      "code": "519",
+      "name": "Coboconk",
+      "age": "Ordovician",
+      "group": "Black River",
+      "color": "#6ad47c"
+    },
+    {
+      "ordinal": 53,
+      "code": "522",
+      "name": "Gull River",
+      "age": "Ordovician",
+      "group": "Black River",
+      "color": "#7dd98c"
+    },
+    {
+      "ordinal": 54,
+      "code": "523",
+      "name": "Shadow Lake",
+      "age": "Ordovician",
+      "group": "Black River",
+      "color": "#90df9d"
+    },
+    {
+      "ordinal": 55,
+      "code": "600",
+      "name": "Cambrian",
+      "age": "Cambrian",
+      "group": "-",
+      "color": "#88cb4d"
+    },
+    {
+      "ordinal": 56,
+      "code": "700",
+      "name": "Precambrian",
+      "age": "Precambrian",
+      "group": "-",
+      "color": "#cb4d90"
+    }
+  ]
+}

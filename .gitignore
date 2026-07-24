@@ -1,0 +1,12 @@
+# Oversized primary data: 563 MB of full-resolution per-layer points; the largest
+# single file (700_Precambrian.bin, 352 MB) exceeds GitHub's 100 MB limit. The web
+# viewer does not use these — it reads only viewerData/volume/ — so they are excluded.
+viewerData/points/
+
+# tooling
+node_modules/
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db

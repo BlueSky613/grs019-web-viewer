@@ -1,0 +1,12 @@
+{
+  "totalVoxelsChecked": 117909004,
+  "gridCells": 289298160,
+  "overlap_collisions": 0,
+  "overlap_layerPairs": [],
+  "overlap_examples": [],
+  "occupiedColumns": 687046,
+  "columns_with_superposition_inversion": 0,
+  "inversion_voxel_pairs": 0,
+  "inversion_rate_pct": 0,
+  "inversion_examples": []
+}
