@@ -52,12 +52,12 @@
   #gizmo-ui { position: absolute; top: 12px; right: 12px; width: 104px; }
   .giz-box { position: relative; width: 104px; height: 104px; pointer-events: none;
     background: #0b0e1366; border: 1px solid #232a3688; border-radius: 8px; backdrop-filter: blur(1px); }
-  #giz-axes { margin-top: 8px; }
+  #giz-axes { margin-top: 16px; }
   .giz-cap { position: absolute; top: 4px; left: 7px; font-size: 9px; letter-spacing: .5px;
     text-transform: uppercase; color: #7d8797; pointer-events: none; }
   .giz-label { position: absolute; font-size: 11px; font-weight: 700; transform: translate(-50%,-50%);
     text-shadow: 0 0 3px #000, 0 0 3px #000; pointer-events: none; }
-  #undo { margin-top: 8px; width: 104px; pointer-events: auto; background: #1d2430; color: #cfd6e2;
+  #undo { margin-top: 16px; width: 104px; pointer-events: auto; background: #1d2430; color: #cfd6e2;
     border: 1px solid #2c3546; border-radius: 6px; padding: 6px; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
   #undo:hover:not(:disabled) { background: #263042; }
   #undo:disabled { opacity: .4; cursor: default; }
@@ -126,13 +126,13 @@
         <span class="giz-cap">Compass</span>
         <span class="giz-label" id="lab-n" style="color:#ff453a">N</span>
       </div>
-      <button id="undo" disabled><span>&#8630;</span> Undo</button>
       <div id="giz-axes" class="giz-box">
         <span class="giz-cap">Axes</span>
         <span class="giz-label" id="lab-x" style="color:#e0653a">X</span>
         <span class="giz-label" id="lab-y" style="color:#4caf50">Y</span>
         <span class="giz-label" id="lab-z" style="color:#4a90d9">Z</span>
       </div>
+      <button id="undo" disabled><span>&#8630;</span> Undo</button>
     </div>
     <div id="loading">Loading volume&hellip;</div>
   </div>
