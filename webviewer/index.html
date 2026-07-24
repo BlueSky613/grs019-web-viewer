@@ -48,13 +48,16 @@
   #hud b { color: #cfd6e2; font-weight: 600; }
   #hud .build { color: #6bd4c6; }
 
-  /* orientation gizmo (compass + XYZ axes) + undo, top-right */
-  #gizmo-ui { position: absolute; top: 12px; right: 12px; width: 118px; }
-  #giz-box { position: relative; width: 118px; height: 118px; pointer-events: none;
+  /* orientation gizmos — compass and XYZ axes are SEPARATE boxes, top-right */
+  #gizmo-ui { position: absolute; top: 12px; right: 12px; width: 104px; }
+  .giz-box { position: relative; width: 104px; height: 104px; pointer-events: none;
     background: #0b0e1366; border: 1px solid #232a3688; border-radius: 8px; backdrop-filter: blur(1px); }
+  #giz-axes { margin-top: 8px; }
+  .giz-cap { position: absolute; top: 4px; left: 7px; font-size: 9px; letter-spacing: .5px;
+    text-transform: uppercase; color: #7d8797; pointer-events: none; }
   .giz-label { position: absolute; font-size: 11px; font-weight: 700; transform: translate(-50%,-50%);
     text-shadow: 0 0 3px #000, 0 0 3px #000; pointer-events: none; }
-  #undo { margin-top: 8px; width: 118px; pointer-events: auto; background: #1d2430; color: #cfd6e2;
+  #undo { margin-top: 8px; width: 104px; pointer-events: auto; background: #1d2430; color: #cfd6e2;
     border: 1px solid #2c3546; border-radius: 6px; padding: 6px; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
   #undo:hover:not(:disabled) { background: #263042; }
   #undo:disabled { opacity: .4; cursor: default; }
@@ -119,13 +122,17 @@
     <canvas id="c"></canvas>
     <div id="hud"></div>
     <div id="gizmo-ui">
-      <div id="giz-box">
+      <div id="giz-compass" class="giz-box">
+        <span class="giz-cap">Compass</span>
         <span class="giz-label" id="lab-n" style="color:#ff453a">N</span>
+      </div>
+      <button id="undo" disabled><span>&#8630;</span> Undo</button>
+      <div id="giz-axes" class="giz-box">
+        <span class="giz-cap">Axes</span>
         <span class="giz-label" id="lab-x" style="color:#e0653a">X</span>
         <span class="giz-label" id="lab-y" style="color:#4caf50">Y</span>
         <span class="giz-label" id="lab-z" style="color:#4a90d9">Z</span>
       </div>
-      <button id="undo" disabled><span>&#8630;</span> Undo</button>
     </div>
     <div id="loading">Loading volume&hellip;</div>
   </div>
@@ -225,7 +232,17 @@ window.addEventListener('mousemove',e=>{if(!dragging)return;const dx=e.clientX-l
   if(dragging===1){yaw-=dx*0.005;pitch=Math.max(-1.5,Math.min(1.5,pitch+dy*0.005));}
   else{const ev=eye();const fwd=norm(sub(target,ev));const right=norm(cross(fwd,[0,0,1]));const up=cross(right,fwd);
     const k=dist*0.0015;target[0]-=(right[0]*dx-up[0]*dy)*k;target[1]-=(right[1]*dx-up[1]*dy)*k;target[2]-=(right[2]*dx-up[2]*dy)*k;}});
-canvas.addEventListener('wheel',e=>{e.preventDefault();dist*=Math.exp(e.deltaY*0.001);},{passive:false});
+canvas.addEventListener('wheel',e=>{ e.preventDefault();
+  let nd=dist*Math.exp(e.deltaY*0.001);
+  if(nd>dist){                                       // zooming out -> cap at 20% original size
+    nd=Math.min(nd,(home?home.dist:dist)*ZOOM_OUT_FACTOR);
+  } else {                                           // zooming in -> stop 20 m before the solid surface
+    const hit=nearestSolidDistance();
+    if(isFinite(hit)) nd=Math.max(nd, dist-Math.max(0,hit-ZOOM_STOP_M));
+    nd=Math.max(nd,1e-3);
+  }
+  dist=nd;
+},{passive:false});
 canvas.addEventListener('contextmenu',e=>e.preventDefault());
 
 // ---------- global state ----------
@@ -235,6 +252,8 @@ let colors=[], vis=[], center=[0,0,0];
 let infoByOrd={};                    // ordinal -> merged manifest record
 const AGE_ORDER=['Quaternary','Devonian','Silurian','Ordovician','Cambrian','Precambrian'];
 const SOLID_STRIDE=3;
+const ZOOM_STOP_M=20;        // zoom-in stops 20 m (rendered units) before the solid surface
+const ZOOM_OUT_FACTOR=5;     // zoom-out limit: down to 20% of the original apparent size (5x distance)
 const planes={x:null,y:null,z:null};
 const solids={};
 const history=[];                    // undo stack of state snapshots
@@ -380,19 +399,26 @@ function gizmoMVP(){
   const gView=lookAt([dir[0]*3.4,dir[1]*3.4,dir[2]*3.4],[0,0,0],[0,0,1]);
   return mul(perspective(32*Math.PI/180,1,0.1,100),gView);
 }
-function drawGizmo(){
-  const d=dpr(), sz=118, mg=12;
-  const vw=Math.round(sz*d), vx=Math.round((canvas.clientWidth-mg-sz)*d), vy=Math.round((canvas.clientHeight-mg-sz)*d);
-  gl.enable(gl.SCISSOR_TEST); gl.scissor(vx,vy,vw,vw); gl.clear(gl.DEPTH_BUFFER_BIT); gl.viewport(vx,vy,vw,vw);
+// viewport (device px, gl bottom-left origin) covering an overlay box element
+function boxViewport(el){
+  const r=el.getBoundingClientRect(), cr=canvas.getBoundingClientRect(), d=dpr();
+  return { x:Math.round((r.left-cr.left)*d), y:Math.round((cr.height-(r.top-cr.top)-r.height)*d),
+           w:Math.round(r.width*d), h:Math.round(r.height*d) };
+}
+// Compass and XYZ axes are drawn as SEPARATE gizmos in their own boxes (same rotation).
+function drawGizmos(){
   const mvp=gizmoMVP();
   gl.useProgram(progF); gl.uniformMatrix4fv(F.mvp,false,mvp); gl.uniform1f(F.vex,1); setFClip(null);
   const bindF=(vbo)=>{ gl.bindBuffer(gl.ARRAY_BUFFER,vbo); gl.enableVertexAttribArray(F.pos); gl.vertexAttribPointer(F.pos,3,gl.FLOAT,false,0,0); };
-  // compass ring
+  const compassEl=document.getElementById('giz-compass'), axesEl=document.getElementById('giz-axes');
+  gl.enable(gl.SCISSOR_TEST);
+  // --- compass box: ring + needle ---
+  let v=boxViewport(compassEl); gl.scissor(v.x,v.y,v.w,v.h); gl.clear(gl.DEPTH_BUFFER_BIT); gl.viewport(v.x,v.y,v.w,v.h);
   bindF(giz.ring); gl.uniform3f(F.color,0.55,0.6,0.68); gl.uniform1f(F.alpha,0.7); gl.drawArrays(gl.LINE_LOOP,0,giz.ringN);
-  // needle (south grey, north red)
   bindF(giz.nS); gl.uniform3f(F.color,0.72,0.76,0.82); gl.uniform1f(F.alpha,0.95); gl.drawArrays(gl.TRIANGLES,0,3);
   bindF(giz.nN); gl.uniform3f(F.color,1.0,0.27,0.23); gl.uniform1f(F.alpha,1.0); gl.drawArrays(gl.TRIANGLES,0,3);
-  // axes
+  // --- axes box: X/Y/Z axes + tips ---
+  v=boxViewport(axesEl); gl.scissor(v.x,v.y,v.w,v.h); gl.clear(gl.DEPTH_BUFFER_BIT); gl.viewport(v.x,v.y,v.w,v.h);
   gl.uniform1f(F.alpha,1.0); bindF(giz.axes);
   gl.uniform3f(F.color,0.88,0.40,0.23); gl.drawArrays(gl.LINES,0,2);   // X east
   gl.uniform3f(F.color,0.30,0.69,0.31); gl.drawArrays(gl.LINES,2,2);   // Y north
@@ -402,15 +428,14 @@ function drawGizmo(){
   gl.uniform3f(F.color,0.30,0.69,0.31); gl.drawArrays(gl.POINTS,1,1);
   gl.uniform3f(F.color,0.29,0.56,0.85); gl.drawArrays(gl.POINTS,2,1);
   gl.disable(gl.SCISSOR_TEST);
-  placeGizmoLabels(mvp,sz);
+  placeLabels(mvp,compassEl,{'lab-n':[0,1.08,0]});
+  placeLabels(mvp,axesEl,{'lab-x':[1.18,0,0],'lab-y':[0,1.18,0],'lab-z':[0,0,1.18]});
 }
-function projTo(mvp,p,sz){ const x=mvp[0]*p[0]+mvp[4]*p[1]+mvp[8]*p[2]+mvp[12];
-  const y=mvp[1]*p[0]+mvp[5]*p[1]+mvp[9]*p[2]+mvp[13]; const w=mvp[3]*p[0]+mvp[7]*p[1]+mvp[11]*p[2]+mvp[15];
-  return [ (x/w*0.5+0.5)*sz, (1-(y/w*0.5+0.5))*sz ]; }
-function placeGizmoLabels(mvp,sz){
-  const set=(id,p)=>{ const [lx,ly]=projTo(mvp,p,sz); const el=document.getElementById(id); el.style.left=lx+'px'; el.style.top=ly+'px'; };
-  set('lab-n',[0,1.06,0]); set('lab-x',[1.14,0,0]); set('lab-y',[0,1.14,0]); set('lab-z',[0,0,1.14]);
-}
+function projTo(mvp,p,w,h){ const x=mvp[0]*p[0]+mvp[4]*p[1]+mvp[8]*p[2]+mvp[12];
+  const y=mvp[1]*p[0]+mvp[5]*p[1]+mvp[9]*p[2]+mvp[13]; const wc=mvp[3]*p[0]+mvp[7]*p[1]+mvp[11]*p[2]+mvp[15];
+  return [ (x/wc*0.5+0.5)*w, (1-(y/wc*0.5+0.5))*h ]; }
+function placeLabels(mvp,el,map){ const w=el.clientWidth,h=el.clientHeight;
+  for(const id in map){ const [lx,ly]=projTo(mvp,map[id],w,h); const e=document.getElementById(id); e.style.left=lx+'px'; e.style.top=ly+'px'; } }
 
 // ---------- color picking ----------
 let pickFB=null,pickTex=null,pickRB=null,pickW=0,pickH=0;
@@ -442,6 +467,30 @@ function clipParams(){
 }
 function setFClip(cp){ if(cp){ gl.uniform3fv(F.clipA,cp.active); gl.uniform3fv(F.clipP,cp.pos); gl.uniform3fv(F.clipS,cp.sign); gl.uniform3fv(F.clipE,cp.eps); }
   else { gl.uniform3f(F.clipA,0,0,0); gl.uniform3f(F.clipP,0,0,0); gl.uniform3f(F.clipS,1,1,1); gl.uniform3f(F.clipE,0,0,0); } }
+
+// A voxel is "solid surface material" only if occupied, visible, and not clipped away.
+function clippedOut(x,y,z,cp){
+  if(cp.active[0] && (x-cp.pos[0])*cp.sign[0] > -cp.eps[0]) return true;
+  if(cp.active[1] && (y-cp.pos[1])*cp.sign[1] > -cp.eps[1]) return true;
+  if(cp.active[2] && (z-cp.pos[2])*cp.sign[2] > -cp.eps[2]) return true;
+  return false;
+}
+// Distance (rendered-world units) from the eye to the nearest such voxel along the view
+// direction; Infinity if the ray misses the model. Used to cap zoom-in near the surface.
+function nearestSolidDistance(){
+  if(!vol) return Infinity;
+  const ev=eye(), dir=norm(sub(target,ev)), nx=D[0], ny=D[1], nz=D[2], cp=clipParams();
+  const coarse=Math.min(SP[0],SP[1])*0.5, maxT=dist*1.6;
+  const solidAt=(t)=>{ const px=ev[0]+dir[0]*t, py=ev[1]+dir[1]*t, pz=ev[2]+dir[2]*t;
+    const ix=Math.round((px+center[0])/SP[0]), iy=Math.round((py+center[1])/SP[1]), iz=Math.round((pz/vExag+center[2])/SP[2]);
+    if(ix<0||iy<0||iz<0||ix>=nx||iy>=ny||iz>=nz) return false;
+    const ord=vol[ix+nx*(iy+ny*iz)]; if(ord===0||!vis[ord]) return false;
+    return !clippedOut(px,py,pz,cp); };
+  for(let t=coarse;t<=maxT;t+=coarse){ if(solidAt(t)){
+    for(let r=Math.max(1,t-coarse+5); r<=t; r+=5){ if(solidAt(r)) return r; }   // refine to ~5 m
+    return t; } }
+  return Infinity;
+}
 function pick(e){
   if(!showSolids){ if(selected) clearSelection(); return; }
   ensurePickFB();
@@ -571,7 +620,7 @@ function draw(){
     gl.bindBuffer(gl.ARRAY_BUFFER,boxVBO); gl.enableVertexAttribArray(F.pos); gl.vertexAttribPointer(F.pos,3,gl.FLOAT,false,0,0);
     gl.drawArrays(gl.LINES,0,boxN); }
 
-  drawGizmo();
+  drawGizmos();
   updateHud();
 }
 function updateHud(){
