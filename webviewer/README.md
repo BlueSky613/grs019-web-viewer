@@ -8,6 +8,8 @@ advantage over a surface-shell representation.
 
 Pure WebGL. No dependencies, no build step, no internet required.
 
+**Live:** https://southernontario1-3dviewer.vercel.app
+
 This app is fully self-contained: its data lives in `data/`, so the folder can be
 deployed on its own (e.g. Vercel) with nothing else.
 
